@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/main.css"/>
+    <meta charset="UTF-8">
+    <title>Добвление товаров</title>
+</head>
+<body>
+<h2>Добавить товар:</h2>
+
+<form method="post" action="/create">
+    <input type="text" name="name" placeholder="Артикул"/>
+    <br/>
+    <input type="text" name="article" placeholder="Артикул"/>
+    <br/>
+    <input type="text" name="bar" placeholder="Штрихкод"/>
+    <br/>
+    <select name="unit" required="required">
+        <option value="">Ед. измерения</option>
+        <option value="шт">шт</option>
+        <option value="кг">кг</option>
+        <option value="г">г</option>
+    </select>
+    <br/>
+    <input type="text" name="price" placeholder="Цена"/>
+    <br>
+
+    <input class="submit" type="submit"/>
+</form>
+
+
+</body>
+</html>
