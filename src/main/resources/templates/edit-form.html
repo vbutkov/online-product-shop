@@ -15,15 +15,16 @@
     <input type="text" th:field="*{article}" id="article" name="article" placeholder="Артикул"/>
     <br/>
     <input type="text" th:field="*{bar}" id="bar" name="bar" placeholder="Штрихкод"/>
-    <br/>
     <select name="unit" required="required">
         <option value="">Ед. измерения</option>
         <option th:selected="${product.unit=='шт'}" th:value="шт" th:text="шт"></option>
-        <!--        <option value="шт">шт</option>-->
-        <!--        <option value="кг">кг</option>-->
         <option th:selected="${product.unit=='кг'}" th:value="кг" th:text="кг"></option>
-        <option value="г">г</option>
+        <option th:selected="${product.unit=='г'}" th:value="г" th:text="г"></option>
+        <!--        <option value="кг">кг</option>-->
+        <!--        <option value="шт">шт</option>-->
+        <!--        <option value="г">г</option>-->
     </select>
+    <br/>
     <br/>
     <input type="text" th:field="*{price}" id="price" name="price" placeholder="Цена"/>
     <br>

@@ -15,10 +15,8 @@ import java.util.stream.Collectors;
 
 @Service
 public class ProductFacade {
-
     private final ProductDao productDao;
     private final int DEFAULT_INDEX_PRICE = 0;
-
     @Autowired
     public ProductFacade(ProductDao productDao) {
         this.productDao = productDao;
@@ -41,13 +39,11 @@ public class ProductFacade {
                 product.getBar().getPrices().get(DEFAULT_INDEX_PRICE));
     }
 
-
     public void createProduct(ProductDto productDto) {
         Article article = new Article(productDto.getName(), productDto.getArticle());
         Bar bar = new Bar(productDto.getBar(), List.of(article), List.of(productDto.getPrice()), Unit.valueOf(productDto.getUnit()));
         productDao.addProduct(new Product(UUID.randomUUID().toString(), article, bar));
     }
-
     public void deleteProduct(String id) {
         Product product = getProduct(id);
         productDao.deleteProduct(product);
@@ -77,4 +73,5 @@ public class ProductFacade {
         product.getBar().setPrices(List.of(productDto.getPrice()));
         product.getBar().setUnit(Unit.valueOf(productDto.getUnit()));
     }
+
 }

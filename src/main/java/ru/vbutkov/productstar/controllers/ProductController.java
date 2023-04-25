@@ -12,7 +12,6 @@ import ru.vbutkov.productstar.facade.ProductFacade;
 //@RequestMapping("/products")
 public class ProductController {
     private final ProductFacade productFacade;
-
     @Autowired
     public ProductController(ProductFacade productFacade) {
         this.productFacade = productFacade;
@@ -22,7 +21,6 @@ public class ProductController {
     public String showProducts(Model model) {
         var products = productFacade.getProducts();
         model.addAttribute("products", products);
-
         return "index";
     }
 
@@ -46,7 +44,6 @@ public class ProductController {
     @PatchMapping("/edit/{id}")
     public String editForm(@PathVariable("id") String id, Model model) {
         var productDto = productFacade.getProductDto(id);
-
         model.addAttribute("product", productDto);
         return "edit-form";
     }
@@ -56,9 +53,7 @@ public class ProductController {
 //        delete(productDto.getId());
 //        create(productDto);
         productFacade.updateProduct(productDto, id);
-
         return "redirect:/";
     }
-
 
 }
