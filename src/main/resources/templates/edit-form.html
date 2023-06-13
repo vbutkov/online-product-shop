@@ -10,11 +10,12 @@
 
 <form th:method="PATCH" th:action="@{/update/{id}(id=${product.getId()})}" th:object="${product}">
 
-    <input type="text" th:field="*{name}" id="name" name="name" placeholder="Артикул"/>
+    <input type="text" th:field="*{name}" id="name" name="name" placeholder="Наименование"/>
     <br/>
     <input type="text" th:field="*{article}" id="article" name="article" placeholder="Артикул"/>
     <br/>
     <input type="text" th:field="*{bar}" id="bar" name="bar" placeholder="Штрихкод"/>
+    <br/>
     <select name="unit" required="required">
         <option value="">Ед. измерения</option>
         <option th:selected="${product.unit=='шт'}" th:value="шт" th:text="шт"></option>
@@ -24,7 +25,6 @@
         <!--        <option value="шт">шт</option>-->
         <!--        <option value="г">г</option>-->
     </select>
-    <br/>
     <br/>
     <input type="text" th:field="*{price}" id="price" name="price" placeholder="Цена"/>
     <br>

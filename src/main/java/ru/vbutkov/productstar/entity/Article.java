@@ -1,5 +1,7 @@
 package ru.vbutkov.productstar.entity;
 
+import java.util.Objects;
+
 public class Article {
 
     private static long generatorId = 1;
@@ -51,5 +53,18 @@ public class Article {
                 ", article='" + article + '\'' +
                 ", type=" + type +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Article article1 = (Article) o;
+        return id == article1.id && type == article1.type && Objects.equals(name, article1.name) && Objects.equals(article, article1.article);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, article, type);
     }
 }

@@ -1,13 +1,17 @@
 package ru.vbutkov.productstar.entity;
 
 public class Product {
-
     String id;
     Article article;
     Bar bar;
 
     public Product(String id, Article article, Bar bar) {
         this.id = id;
+        this.article = article;
+        this.bar = bar;
+    }
+
+    public Product(Article article, Bar bar) {
         this.article = article;
         this.bar = bar;
     }
@@ -24,10 +28,15 @@ public class Product {
         return id;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
-                "article=" + article +
+                "id='" + id + '\'' +
+                ", article=" + article +
                 ", bar=" + bar +
                 '}';
     }

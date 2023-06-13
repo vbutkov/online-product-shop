@@ -37,7 +37,7 @@ select {
     background: none;
 }
 
-.update {
+.update, .create {
     width: 100px;
     border: 1px solid #006699;
 }
